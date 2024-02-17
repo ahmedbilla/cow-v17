@@ -1,0 +1,118 @@
+https://demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/tables-basic.html
+
+
+
+https://github.com/tailwindtoolbox/Profile-Card
+
+
+
+https://themelock.com/pg/3/
+
+
+chart.js
+
+
+
+
+      <?php
+                $host = "localhost";
+                $database = "cow_farmer_ahmed_billa";
+                $username = "root";
+                $password = "";
+
+                $conn = mysqli_connect($host, $username, $password, $database);
+
+                if (mysqli_connect_errno()) {
+                    die("Connection error: " . mysqli_connect_error());
+                }
+
+                $query = "SELECT id_cow FROM ia_details";
+                $result = mysqli_query($conn, $query);
+
+                if ($result) {
+                ?>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                        <?php echo "" . $row['id_cow'] . ""; ?>
+
+                <?php
+                    }
+
+                    mysqli_free_result($result);
+                } else {
+                    echo "Error: " . mysqli_error($conn);
+                }
+
+                mysqli_close($conn);
+                ?>
+
+
+
+
+
+
+
+
+
+  <?php
+                    $host = "localhost";
+                    $database = "cow_farmer_ahmed_billa";
+                    $username = "root";
+                    $password = "";
+
+                    $conn = mysqli_connect($host, $username, $password, $database);
+
+                    if (mysqli_connect_errno()) {
+                        die("Connection error: " . mysqli_connect_error());
+                    }
+
+                    $query = "SELECT id_cow, ord FROM ia_details";
+                    $result = mysqli_query($conn, $query);
+
+                    if ($result) {
+                    ?>
+                        <div style="display: flex; flex-wrap: wrap;">
+                            <?php
+                            // Reference point to indicate debut
+                            echo '<div class="debutPoint">Debut</div>';
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $id_cow = $row['id_cow'];
+                                $ord = $row['ord'];
+
+                                // Display id_cow based on ord
+                                switch ($ord) {
+                                    case 1:
+                                        echo '<div class="orderOne"><span style="display: inline-block; width: 18px; height: 18px; border-radius: 50%; background-color: #FFD700; text-align: center; line-height: 19px; color: #fff; font-weight: bold; font-size: 10px;  ">' . $id_cow . '</span></div>';
+                                        break;
+                                    case 2:
+                                        echo '<div class="orderTow"><span style="display: inline-block; width: 18px; height: 18px; border-radius: 50%; background-color: #FFD700; text-align: center; line-height: 19px; color: #fff; font-weight: bold; font-size: 10px;  ">' . $id_cow . '</span></div>';
+                                        break;
+                                    case 3:
+                                        echo '<div class="orderTree"><span style="display: inline-block; width: 18px; height: 18px; border-radius: 50%; background-color: #FFD700; text-align: center; line-height: 19px; color: #fff; font-weight: bold; font-size: 10px;  ">' . $id_cow . '</span></div>';
+                                        break;
+                                    case 4:
+                                        echo '<div class="orderFour"><span style="display: inline-block; width: 18px; height: 18px; border-radius: 50%; background-color: #FFD700; text-align: center; line-height: 19px; color: #fff; font-weight: bold; font-size: 10px;  ">' . $id_cow . '</span></div>';
+                                        break;
+                                    case 5:
+                                        echo '<div class="orderFive">' . $id_cow . '</div>';
+                                        break;
+                                    case 6:
+                                        echo '<div class="orderSix">' . $id_cow . '</div>';
+                                        break;
+                                        // Add more cases if needed
+                                    default:
+                                        // Handle other values of ord if needed
+                                }
+                            }
+                            mysqli_free_result($result);
+                            ?>
+                        </div>
+                    <?php
+                    } else {
+                        echo "Error: " . mysqli_error($conn);
+                    }
+
+                    mysqli_close($conn);
+                    ?>

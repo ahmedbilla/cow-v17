@@ -1,0 +1,76 @@
+@import url(../../components/custom/custom.css);
+@import url(../../components/loader/loader.css);
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Prevent video overflow */
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    margin: 0px;
+    padding: 0px;
+}
+
+.content {
+    z-index: 1;
+    /* Add other styles for your content container */
+}
+
+
+
+.weather-center {
+    font-size: 4rem;
+    color: var(--minimal-green);
+    text-shadow: 1px 1px 5px black;
+}
+.weather-center span:first-child {
+    color: var(--white);
+}
+.weather-center span:nth-child(2) {
+    font-weight: lighter;
+}
+.weather-center span:nth-child(3) {
+    color: var(--white);
+}
+.weather-center span:last-child {
+    font-weight: lighter;
+}
+.gps-msg {
+    color: var(--white);
+    font-size: 1.2rem;
+    text-shadow: 2px 1px 5px black;
+}
+.gps-msg span {
+    color: var(--white);
+    text-shadow: 2px 1px 5px black;
+}
+.allow-my-location {
+    position: relative;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    padding: 10px 25px;
+    background: var(--button-gradient);
+    border: none;
+    color: var(--ice-white);
+    box-shadow: var(--minimal-shadow);
+    transition: 0.3s;
+}
+.allow-my-location:hover {
+    filter: brightness(0.9);
+}
+.gps-msg-err {
+    color: red !important;
+}
